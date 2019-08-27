@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "276054756630",
+    "firebase_url": "https://barcodegen-d1988.firebaseio.com",
+    "project_id": "barcodegen-d1988",
+    "storage_bucket": "barcodegen-d1988.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276054756630:android:30f63a06851b3f51",
+        "android_client_info": {
+          "package_name": "com.example.barcodegender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276054756630-6nu2c1pgtth4j1f81qi4gsptgve3pbrr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHB8ALd1a-QNUua9QW97C7Ldh0EhaloHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276054756630-6nu2c1pgtth4j1f81qi4gsptgve3pbrr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

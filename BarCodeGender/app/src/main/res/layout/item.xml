@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_margin="10dp"
+              android:id="@+id/item"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+    <ImageView
+            android:id="@+id/pic_product"
+            android:src="@drawable/shirt"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+    <!--<LinearLayout-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<LinearLayout-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<TextView-->
+    <!--android:gravity=""-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:text="ชื่อสินค้า : "-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--<TextView-->
+    <!--android:gravity=""-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:text="กางเกงวอม Fly Hawk "-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<TextView-->
+    <!--android:gravity=""-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:text="ราคา : "-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--<TextView-->
+    <!--android:gravity=""-->
+    <!--android:textColor="@android:color/black"-->
+    <!--android:text="220"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <TextView
+            android:id="@+id/name_product"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:text="กางเกง"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+</LinearLayout>
