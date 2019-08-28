@@ -1,7 +1,6 @@
 package com.example.barcodegender
 
-import android.content.Context
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.barcodegender.adapter.TypeListAdapter
+import com.example.barcodegender.second.SecondActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_type.*
 
@@ -25,6 +25,8 @@ import kotlinx.android.synthetic.main.fragment_type.*
 class TypeFragment : Fragment() {
     private var listPic = ArrayList<String>()
     private var listName = ArrayList<String>()
+    private var listCode = ArrayList<String>()
+
     private val productListAdapter: TypeListAdapter by lazy { TypeListAdapter() }
     private var mDatabase: DatabaseReference? = null
     private var mMessageReference: DatabaseReference? = null
@@ -55,13 +57,25 @@ class TypeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_type, container, false)
     }
     private fun initListView() {
-        listPic = ArrayList()
+               listPic = ArrayList()
         listName = ArrayList()
+        listCode = ArrayList()
 
+
+        productListAdapter.setListener(object : TypeListAdapter.onItemClickListner{
+            override fun onClick(name: String, get: String) {
+                Log.d("WalksMan",name+"  "+get)
+
+                val intent = Intent(context,SecondActivity::class.java)
+                intent.putExtra("code",get)
+                intent.putExtra("name",name)
+                startActivity(intent)
+            }
+        })
         mDatabase = FirebaseDatabase.getInstance().reference
         mMessageReference = FirebaseDatabase.getInstance().getReference("1")
 
-        mDatabase!!.child("1").addListenerForSingleValueEvent(object : ValueEventListener {
+        mDatabase!!.child("1").child("list").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
             }
@@ -75,16 +89,16 @@ class TypeFragment : Fragment() {
                     i++
                     //  listPic.add(p1.value.toString())
 
-                    listName.add(p1.key.toString())
-
-                    listPic.add(p1.child("pic").value.toString())
+                    listName.add(p1.child("name").value.toString())
+                    listCode.add(p1.child("code").value.toString())
+                    listPic.add(p1.child("name").value.toString())
                     if (i == p0.childrenCount.toInt()) {
 
 
                         Log.d("WalksMan", "Maneiei" + listName.size.toString())
                         list_type?.layoutManager = GridLayoutManager(context, 4)
                         list_type?.adapter = productListAdapter
-                        productListAdapter.addList(listName, listPic)
+                        productListAdapter.addList(listName, listPic,listCode)
                         productListAdapter.notifyDataSetChanged()
                     }
                 }

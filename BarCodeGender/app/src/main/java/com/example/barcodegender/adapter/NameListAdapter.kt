@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barcodegender.R
 import kotlinx.android.synthetic.main.item.view.*
+import kotlinx.android.synthetic.main.name.view.*
 
 
-class TypeListAdapter : RecyclerView.Adapter<ProductItemView>() {
+class NameListAdapter : RecyclerView.Adapter<NameItemView>() {
 
 
     private var listName: ArrayList<String>? = null
@@ -20,17 +21,16 @@ class TypeListAdapter : RecyclerView.Adapter<ProductItemView>() {
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemView {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NameItemView {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item, parent, false)
-        return ProductItemView(view)
+            .inflate(R.layout.name, parent, false)
+        return NameItemView(view)
     }
 
-    override fun onBindViewHolder(holder: ProductItemView, position: Int) {
+    override fun onBindViewHolder(holder: NameItemView, position: Int) {
 
         holder.setName(listName?.get(position)!!)
-        holder.setPic(listPic?.get(position)!!, holder.itemView.context)
-        holder.itemView.item.setOnClickListener {
+        holder.itemView.item_name.setOnClickListener {
 
             listener?.onClick(listName?.get(position)!!,listCode?.get(position)!!)
         }

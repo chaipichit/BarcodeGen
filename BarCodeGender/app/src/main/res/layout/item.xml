@@ -58,7 +58,7 @@
     <TextView
             android:id="@+id/name_product"
             android:textColor="@android:color/black"
-            android:textSize="28sp"
+            android:textSize="18sp"
             android:gravity="center"
             android:text="กางเกง"
             android:layout_width="match_parent"

@@ -9,15 +9,13 @@ import com.bumptech.glide.Glide
 import com.example.barcodegender.R
 
 
-class ProductItemView(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class NameItemView(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     var name: TextView? = null
-    var pic: ImageView? = null
 
 
     init {
-        name = itemView.findViewById(R.id.name_product)
-        pic = itemView.findViewById(R.id.pic_product)
+        name = itemView.findViewById(R.id.name)
 
     }
 
@@ -26,10 +24,4 @@ class ProductItemView(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
-    fun setPic(get: String, context: Context) {
-//        pic?.let {
-//            Glide.with(context)
-//                .load(get).into(it)
-//        }
-    }
 }
