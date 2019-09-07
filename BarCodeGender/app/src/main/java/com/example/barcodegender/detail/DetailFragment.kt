@@ -1,5 +1,7 @@
 package com.example.barcodegender.detail
 
+import android.app.ActionBar
+import android.app.Dialog
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -15,6 +18,9 @@ import com.example.barcodegender.adapter.NameListAdapter
 import com.example.barcodegender.adapter.SizeAdapter
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_type.*
+import android.util.DisplayMetrics
+
+
 
 
 class DetailFragment : Fragment() {
@@ -46,7 +52,19 @@ class DetailFragment : Fragment() {
 
     private fun initButton() {
         add_item.setOnClickListener {
-            listName.add("Man")
+
+            val metrics = resources.displayMetrics
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
+
+            var dialog = context?.let { it1 -> Dialog(it1) }
+            dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog?.setContentView(R.layout.size_and_stock)
+            dialog?.setCancelable(false)
+            dialog?.window?.setLayout((6 * width)/7, ActionBar.LayoutParams.WRAP_CONTENT)
+            dialog?.show()
+
+            //listName.add("Man")
             productListAdapter.notifyDataSetChanged()
         }
 
@@ -54,7 +72,6 @@ class DetailFragment : Fragment() {
 
     private fun initListView() {
         listName = ArrayList()
-        listName.add("Man")
         list_size?.layoutManager = LinearLayoutManager(context)
         list_size?.adapter = productListAdapter
         list_size.setHasFixedSize(true)
