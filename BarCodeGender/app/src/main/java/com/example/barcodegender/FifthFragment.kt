@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.barcodegender.adapter.NameListAdapter
+import com.example.barcodegender.detail.DetailActivity
 import com.example.barcodegender.three.ThreeActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_fifth.*
@@ -75,10 +76,10 @@ class FifthFragment : Fragment() {
             override fun onClick(name: String, get: String) {
                 Log.d("WalksMan", name + "  " + get)
 
-//                val intent = Intent(context, ThreeActivity::class.java)
-//                intent.putExtra("code",code)
-//                intent.putExtra("name",name)
-//                startActivity(intent)
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("code",code)
+                intent.putExtra("name",name)
+                startActivity(intent)
             }
         })
         mDatabase = FirebaseDatabase.getInstance().reference
