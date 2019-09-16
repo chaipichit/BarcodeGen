@@ -31,7 +31,7 @@ class ThreeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-                 }
+        }
     }
 
     override fun onCreateView(
@@ -55,6 +55,7 @@ class ThreeFragment : Fragment() {
     private fun initListView() {
         val code = activity?.intent?.getStringExtra("code")
         val name = activity?.intent?.getStringExtra("name")
+        val Barcode = activity?.intent?.getStringExtra("Barcode")
         listPic = ArrayList()
         listName = ArrayList()
         listCode = ArrayList()
@@ -64,15 +65,15 @@ class ThreeFragment : Fragment() {
             override fun onClick(name: String, get: String) {
                 Log.d("WalksMan", name + "  " + get)
 
-                val intent = Intent(context,FourActivity::class.java)
-                intent.putExtra("code",code)
-                intent.putExtra("name",name)
+                val intent = Intent(context, FourActivity::class.java)
+                intent.putExtra("Barcode", Barcode + get)
+                intent.putExtra("code", code)
+                intent.putExtra("name", name)
                 startActivity(intent)
             }
         })
         mDatabase = FirebaseDatabase.getInstance().reference
         mMessageReference = FirebaseDatabase.getInstance().getReference("1")
-
         mDatabase!!.child("1").child("list").child(code.toString()).child("list2")
             .addListenerForSingleValueEvent(object :
                 ValueEventListener {
@@ -109,7 +110,6 @@ class ThreeFragment : Fragment() {
 
             })
         mDatabase!!.child("1").parent
-
 
 
     }

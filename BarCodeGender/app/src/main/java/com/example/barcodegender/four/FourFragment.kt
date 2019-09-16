@@ -69,6 +69,8 @@ class FourFragment : Fragment() {
 
         val code = activity?.intent?.getStringExtra("code")
         val name = activity?.intent?.getStringExtra("name")
+        val Barcode = activity?.intent?.getStringExtra("Barcode")
+
         listPic = ArrayList()
         listName = ArrayList()
         listCode = ArrayList()
@@ -79,6 +81,7 @@ class FourFragment : Fragment() {
                 Log.d("WalksMan", name + "  " + get)
 
                 val intent = Intent(context, FifthActivity::class.java)
+                intent.putExtra("Barcode",Barcode+get)
                 intent.putExtra("code",code)
                 intent.putExtra("name",name)
                 startActivity(intent)

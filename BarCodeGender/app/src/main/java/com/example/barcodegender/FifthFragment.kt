@@ -17,7 +17,6 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_fifth.*
 
 
-
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
@@ -35,7 +34,6 @@ class FifthFragment : Fragment() {
     private val productListAdapter: NameListAdapter by lazy { NameListAdapter() }
     private var mDatabase: DatabaseReference? = null
     private var mMessageReference: DatabaseReference? = null
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +55,7 @@ class FifthFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fifth, container, false)
     }
+
     private fun initInstance() {
         initListView()
 
@@ -67,6 +66,8 @@ class FifthFragment : Fragment() {
 
         val code = activity?.intent?.getStringExtra("code")
         val name = activity?.intent?.getStringExtra("name")
+        val Barcode = activity?.intent?.getStringExtra("Barcode")
+
         listPic = ArrayList()
         listName = ArrayList()
         listCode = ArrayList()
@@ -77,8 +78,9 @@ class FifthFragment : Fragment() {
                 Log.d("WalksMan", name + "  " + get)
 
                 val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("code",code)
-                intent.putExtra("name",name)
+                intent.putExtra("Barcode", Barcode + get)
+                intent.putExtra("code", code)
+                intent.putExtra("name", name)
                 startActivity(intent)
             }
         })

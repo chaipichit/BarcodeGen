@@ -73,9 +73,10 @@ class SecondFragment : Fragment() {
             override fun onClick(name: String, get: String) {
                 Log.d("WalksMan", name + "  " + get)
 
-                val intent = Intent(context,ThreeActivity::class.java)
-                intent.putExtra("code",code)
-                intent.putExtra("name",name)
+                val intent = Intent(context, ThreeActivity::class.java)
+                intent.putExtra("Barcode", code + get)
+                intent.putExtra("code", code)
+                intent.putExtra("name", name)
                 startActivity(intent)
             }
         })
